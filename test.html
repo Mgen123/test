@@ -1,0 +1,188 @@
+<html>
+    <head>
+        <title>My Portfolio</title>
+        <style>
+        #Portfolio {
+            display: none;
+        }
+
+        #progressContainer {
+            display: none;
+            width: 100%;
+            background-color: #ddd;
+            margin-top: 20px;
+        }
+
+        #progressBar {
+            width: 0%;
+            height: 30px;
+            background-color: #4CAF50;
+            text-align: center;
+            color: white;
+            line-height: 30px;
+        }
+    </style>
+    </head>
+
+    <body>
+        <form id="loginForm">
+        <label>Username:</label>
+        <input type="text" id="username" required><br>
+        <label>Password:</label>
+        <input type="password" id="password" required><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <div id="progressContainer">
+        <div id="progressBar">0%</div>
+    </div>
+
+     <div id="Portfolio">
+        <nav>
+        <a href="#about">About Me</a> |
+        <a href="#education">Education</a> |
+        <a href="#skills">Skills</a> |
+        <a href="#favorites">Favorites</a> |
+        <a href="#images">Image Gallery</a> |
+        <a href="#contact">Contact</a>
+    </nav>
+
+        <h1>Welcome to My Portfolio</h1>
+        <img src="genz_profile.png" width="200">
+        <h1>Generose Morales</h1>
+        <p>Hello! I'm a web developer in training.</p>
+        <h2>Projects</h2>
+        <ul>
+            <li>Personal Website</li>
+            <li>Portfolio Resume</li>
+        </ul>
+
+         <table border="1">
+            <p><strong><i>My grades last semester:</i></strong></p>
+    <tr>
+        <th>Subject</th>
+        <th>Grade</th>
+    </tr>
+    <tr>
+        <td>Calculus</td>
+        <td>88</td>
+    </tr>
+    <tr>
+        <td>General Math</td>
+        <td>95</td>
+    </tr>
+    <tr>
+        <td>Physical Education</td>
+        <td>98</td>
+    </tr>
+</table>
+        <h1 id="about"><strong>About Me</strong></h1>
+        <h2 id="education">Education:</h2>
+        <ul>2024 - present: BS Ccomputer Science at Fullbright College</ul>
+        <ul>2021-2022: Ipilan Senior High School</ul>
+        <ul>2014-2015: Ipilan Central School</ul>
+
+        <h2 id="skills">Skills:</h2>
+        <ul>
+            <li>HTML</li>
+            <li>PYTHON</li>
+        </ul>
+
+        <h2 id="favorites">Favorites:</h2>
+        <p><strong>song:</strong></p>
+        <video width="320" height="240" controls>
+            <source src="onepiece.mp4" type="video/mp4">
+        </video>
+        <p><strong>Hobbies:</strong></p>
+        <li>Watching anime</li>
+        <img src="anime.webp" width="200">
+        <li>Food</li>
+        <img src="eye_catch_ramen.jpg" width="200">
+        <h2 id="images">Image Gallery</h2>
+        <img src="image1.png" width="200">
+        <img src="image2.png" width="200">
+        <img src="image5.png" width="200">
+        <img src="image7.jpg" width="200">
+
+        <h2>Embedded YouTube Video</h2>
+        <p>I Listen to this relaxing music if I am meditating...</p>
+        <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/1xQtpf8QXpA"
+      title="YouTube video"
+      allowfullscreen>
+    </iframe>
+
+    <h2>Audio Sample</h2>
+    <p>I always play this song to start a day...</p>
+<audio controls>
+<source src="utomp3.com - LONGMAN spiralMusic VideoTVアニメ無職転生Ⅱ 異世界行ったら本気だすOPテーマ.mp3"type="audio/mp3">
+</audio>
+
+<h2>My To-Do List:</h2>
+<p><strong>In Making Personal Wedsite add the following:</strong></p>
+<ul>
+    <li><input type="checkbox">HTML Personal Portfolio Website</li>
+    <li><input type="checkbox">HTML Table with Merged Cells</li>
+    <li><input type="checkbox">HTML Image Gallery</li>
+    <li><input type="checkbox">HTML Navigation</li>
+    <li><input type="checkbox">HTML Resume Page</li>
+    <li><input type="checkbox">Login Form</li>
+    <li><input type="checkbox">Embedded YouTube Video</li>
+    <li><input type="checkbox">Feedback Form with Textarea</li>
+    <li><input type="checkbox">HTML5 Audio and Video</li>
+    <li><input type="checkbox">To-Do List Layout</li>
+    <li><input type="checkbox">Pogress Bar</li>
+    <li><input type="checkbox">Adding CSS Styles</li>
+</ul>
+        <h2 id="contact">Contact Information</h2>
+        <p><strong>Email:</strong> <a href="mailto:genlaper@gmail.com">genlaperme@gmail.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel: +639516723949">+63 951 672 3949</a></p>
+
+<form>
+    <h2>Feedback Form with Textarea</h2>
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" /><br />
+    <label for="feedback">Your Feedback:</label><br />
+    <textarea id="feedback" rows="4" cols="40"></textarea><br />
+    <button type="submit">Submit</button>
+  </form>
+
+        <a href="#about">Bact to top</a>
+        </div>
+            
+    <script>
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+
+    if (username === "admin" && password === "1234") {
+        document.getElementById("loginForm").style.display = "none";
+        
+        document.getElementById("progressContainer").style.display = "block";
+
+        let progressBar = document.getElementById("progressBar");
+        let width = 0;
+
+        let progressInterval = setInterval(function() {
+            if (width >= 100) {
+                clearInterval(progressInterval);
+                document.getElementById("progressContainer").style.display = "none";
+                document.getElementById("Portfolio").style.display = "block";
+            } else {
+                width++;
+                progressBar.style.width = width + "%";
+                progressBar.textContent = width + "%";
+            }
+        }, 30); 
+    } else {
+        alert("Invalid username or password!");
+    }
+});
+</script>
+
+    </body>
+</html>
+
